@@ -1,0 +1,80 @@
+{% load static %}
+
+<!-- Libraries -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<!-- Stylesheet -->
+<link href="{% static 'css/footer.css' %}" rel="stylesheet">
+
+<!-- Footer Start -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="footer-about">
+                    <h3>About Us</h3>
+                    <p>
+                        Plants are mainly multicellular organisms, predominantly photosynthetic eukaryotes of the kingdom Plantae. Historically, plants were treated as one of two kingdoms including all living things that were not animals, and all algae and fungi were treated as plants.
+                    </p>
+                    <div class="footer-social">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="footer-contact">
+                    <h3>Get In Touch</h3>
+                    <p><i class="fa fa-map-marker-alt"></i>VIT, Vellore, India</p>
+                    <p><i class="fa fa-phone-alt"></i>+91 9414972330</p>
+                    <p><i class="fa fa-envelope"></i>contact@roots&shoots.com</p>
+                    <p><i class="far fa-clock"></i>Mon - Fri, 9AM - 10PM</p>
+                </div>
+            </div>
+                
+            <div class="col-md-6 col-lg-4">
+                <div class="footer-project">
+                    <h3>New Offers</h3>
+                    <a href=""><img src="{% static 'images/footer/img-1.jpg' %}" alt="Image"></a>
+                    <a href=""><img src="{% static 'images/footer/img-2.jpg' %}" alt="Image"></a>
+                    <a href=""><img src="{% static 'images/footer/img-3.jpg' %}" alt="Image"></a>
+                    <a href=""><img src="{% static 'images/footer/img-4.jpg' %}" alt="Image"></a>
+                    <a href=""><img src="{% static 'images/footer/img-5.jpg' %}" alt="Image"></a>
+                    <a href=""><img src="{% static 'images/footer/img-6.jpg' %}" alt="Image"></a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <div class="container">
+            <div class="row align-items-center" style="width: 100%;">
+                
+                <div class="col-md-6">
+                    <div class="copy-text">
+                        <p>&copy; <a href="#">Roots&Shoots</a>. All Rights Reserved</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="copy-menu">
+                        <a href="{% url 'our_team' %}">About Us</a>
+                        <a href="">Terms</a>
+                        <a href="">Privacy</a>
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+ <!-- Footer End -->

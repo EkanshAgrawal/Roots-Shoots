@@ -1,0 +1,127 @@
+{% load static %}
+{% load item_count %}
+<!-- Stylesheet -->
+<link rel="stylesheet" href="{% static 'css/home/navbar.css' %}">
+<link rel="icon" href="{% static 'images/home/core-img/favicon.ico' &}">
+
+<!-- Navbar -->
+<header class="header-area">  
+    <div class="top-header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="top-header-content d-flex align-items-center justify-content-between">
+                        <!-- Top Header Content -->
+                        <div class="top-header-meta">
+                            <a href="{% url 'contact' %}" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: roots&shoots@gmail.com</span></a>
+                            <a href="{% url 'contact' %}" data-toggle="tooltip" data-placement="bottom"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us:+91 9414972330</span></a>
+                        </div>
+
+                        <!-- Top Header Content -->
+                        <div class="top-header-meta d-flex">
+                            <!-- Login -->
+                            {% if user.is_authenticated %}
+                            <div class="login">
+                                <a href="{% url 'home' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>{{ user }}</span></a>
+                            </div>
+                            <!-- Cart -->
+                            <!-- <div class="cart">
+                                <a href="{% url 'cart' %}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>Cart <span class="cart-quantity">({% item_count user %})</span></span></a>
+                            </div> -->
+                             <div class="login">
+                                <a href="{% url 'logout' %}">&nbsp; &nbsp; <span>Logout</span></a>
+                            </div>
+                            {% else %}
+                            <div class="login">
+                                <a href="{% url 'login' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>Login</span></a>
+                            </div>
+                            <!-- Cart -->
+                            <div class="cart">
+                                <a href="{% url 'register_customer' %}"><i class="fa fa-user" aria-hidden="true"></i> <span>Sign up</span></a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Navbar Area ***** -->
+    <div class="alazea-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container" style="padding: 0px;">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="alazeaNav">
+
+                    <!-- Nav Brand -->
+                    <a href="{% url 'home' %}" class="nav-brand"><img src="{% static 'images/home/core-img/logo.png' %}" alt="" style="height: 100px;"></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Navbar Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <!-- <li><a href="">Products</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'itemlist' %}">Shop</a></li>
+                                        {% if user.username != "Harsha" %}
+                                            <li><a href="{% url 'product_upload' %}">Product Upload</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'cart' %}">Shopping Cart</a></li>
+                                    </ul>
+                                </li> -->
+                                <li><a href="">Blogs</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'blogs' %}">Home</a></li>
+                                        <li><a href="{% url 'uploading_blogs' %}">Upload a Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'our_team' %}">Our Team</a></li>
+                                
+                                <li><a href="{% url 'faq' %}">FAQ</a></li>
+                            </ul>
+                        </div>
+                        <!-- Navbar End -->
+                    </div>
+                </nav>
+
+                <!-- Search Form -->
+                <div class="search-form">
+                    <form action="#" method="get">
+                        <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                        <button type="submit" class="d-none"></button>
+                    </form>
+                    <!-- Close Icon -->
+                    <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Javasript -->
+<script src="{% static 'js/home.js' %}"></script>
+<!-- ##### All Javascript Files ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{% static 'js/home/jquery/jquery-2.2.4.min.js' %}"></script>
+<!-- Popper js -->
+<script src="{% static 'js/home/bootstrap/popper.min.js' %}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'js/home/bootstrap/bootstrap.min.js' %}"></script>
+<!-- All Plugins js -->
+<script src="{% static 'js/home/plugins/plugins.js' %}"></script>
+<!-- Active js -->
+<script src="{% static 'js/home/active.js' %}"></script>

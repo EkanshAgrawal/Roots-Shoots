@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product_upload.css' %}">
+<div class="wrapper">
+   <div class="title">
+      UPLOAD YOUR PRODUCT
+   <hr></div>
+   
+   <form class="form" method="post" action = "{% url 'product_upload' %}" enctype='multipart/form-data'>
+      {% csrf_token %}
+      <div class="inputfield">
+         <label>PRODUCT NAME</label>
+         <input type="text" class="input" placeholder="Enter the product name" name='title'>
+      </div>  
+      <div class="inputfield">
+         <label>PRICE</label>
+         <input  type="number" step="0.01" class="input" placeholder="Actual price of the product" name='price'>
+      </div>  
+      <div class="inputfield">
+         <label>DISCOUNT PERCENTAGE</label>
+         <input type="number" step="0.1" class="input" placeholder="Discount on the product" name='offers'>
+      </div> 
+      <div class="inputfield">
+         <label>SHIPPING PRICE</label>
+         <input  type="number" step="0.01" class="input" placeholder="Shipping Price" name='shippingCharges'>
+      </div>  
+      <div class="inputfield">
+         <label>CATEGORY</label>
+         <div class="custom_select">
+            <select name='category'>
+            <option value="tree">Trees</option>
+            <option value="plants">Plant</option>
+            <option value="fertilizer">Fertilizer</option>
+            <option value="soil">Soil</option>
+            <option value="seeds">Seeds</option>
+            </select>
+         </div>
+      </div>
+      <div class="inputfield">
+      <label>NO. OF PRODUCTS</label>
+      <input type="number"  class="input" placeholder="Number of products" name='countofproducts'>
+   </div>  
+      <div class="inputfield">
+         <label>DESCRIPTION</label>
+         <textarea class="textarea" placeholder="Write a short description about the product" name='description'></textarea>
+      </div> 
+      <div class="inputfield">
+         <label>PLANTING AND CARE</label>
+         <textarea class="textarea" placeholder="Write about the planting and caring instructions of the product" name='plantingAndCare'></textarea>
+      </div> 
+      SPECIFICATIONS
+      <div class="inputfield">
+      <label>Common Name</label>
+      <input class="input" placeholder="Common name of the product" name='commonName'>
+      </div> 
+      <div class="inputfield">
+         <label>Plant Spread</label>
+         <input class="input" placeholder="Plant Spread for the product" name='plantSpread'>
+      </div> 
+      <div class="inputfield">
+         <label>Max Height</label>
+         <input class="input" placeholder="Max Height of the product" name='maxHeight'>
+         </div> 
+      <div class="inputfield">
+         <label>Sunlight</label>
+         <input class="input" placeholder="Sunlight for the product" name='sunlight'>
+         </div> 
+      <div class="inputfield">
+         <label>Watering</label>
+         <input class="input" placeholder="Watering for the product" name='watering'>
+      </div>   
+      <div class="inputfield">
+         <label>Soil</label>
+         <input class="input" placeholder="Soil for the product" name='soil'>
+         </div> 
+      <div class="inputfield">
+         <label>Optimum Temperature</label>
+         <input class="input" placeholder="Temperature for the product" name='temp'>
+         </div> 
+      <div class="inputfield">
+         <label>Fertilizers</label>
+         <input class="input" placeholder="Fertilizers for the product" name='ferti'>
+         </div> 
+      <div class="inputfield">
+         <label>Bloom Time</label>
+         <input class="input" placeholder="Bloom Time of the product" name='bloomTime'>
+         </div> 
+
+
+   <div class="mainimage">
+   
+   <input type="file" name="img0">
+   </div><br>
+   <div class="1stimage"> <input type="file" name='img1'></div><br>
+   <div class="2ndimage"> <input type="file" name='img2'></div><br>
+   <div class="3rdimage"> <input type="file" name='img3'></div><br> 
+   <input type="submit" value ="Upload">
+</form>
+</div>
+
+{% endblock content %}

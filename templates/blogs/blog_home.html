@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+{% load get_plant_Cat %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}"/>
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonnymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+<h2 class="title-blog">BLOGS</h2>
+<section id="blog">
+    <div class="gallery">
+
+        <ul class="blog-filter">
+            <li class="list blog-filter-active" data-filter="all">ALL</li>
+            <li class="list" data-filter="plant">PLANT TALK</li>
+            <li class="list" data-filter="gardening">GARDENING DIY'S</li>
+            <li class="list" data-filter="styling">PLANTS STYLING</li>
+            <li class="list" data-filter="kitchen ">KITCHEN GARDENING</li>
+            <li class="list" data-filter= "development">SUSTAINABLE DEVELOPEMENT</li>
+        </ul>
+    </div>
+
+    <div class="blog-container">
+
+      {% for i in blogs %}
+      <div class="blog-box {{ i.category }}">
+
+          <div class="blog-img">
+              <img src="/media/{{ i.blog_image }}">
+              <span class="category">
+                {{ tags|get_plant_Cat:i.category}}
+              </span>
+          </div>
+
+              <div class="blog-text">
+
+                  <h4 class="indi-blog-title">{{ i.blog_title }}</h4>
+
+                  <h6 class="published-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ i.publish_date }}</h6>
+                  <h6><i class="fa fa-user "></i> {{ i.author }}</h6><br>
+
+
+              </div>
+              <div class="para">
+                  <p>{{ i.blog_content|slice:":100" }}</p>
+              </div>
+              <a href="{% url 'blog_details' the_slug=i.slug %}" class="square_btn">READ MORE</a>
+
+      </div>
+      {% endfor %}
+
+
+    </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+<script type="text/javascript">
+    $(document).on('click','blog-filter li',function(){
+        $(this).addClass('blog-filter-active').siblings().removeClass('active')
+    });
+
+    $(document).ready(function(){
+        $('.list').click(function(){
+            var value =  $(this).attr('data-filter');
+            if(value =='all'){
+                $('.blog-box').show('1000');
+            }
+            else{
+                $('.blog-box').not('.'+value).hide('800');
+                $('.blog-box').filter('.'+value).show('1000');
+            }
+        });
+    });
+</script>
+
+{% endblock content %}

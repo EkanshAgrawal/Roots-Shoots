@@ -1,0 +1,345 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/checkout/open-iconic-bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout/animate.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'css/checkout/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout/magnific-popup.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/checkout/aos.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/checkout/ionicons.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/checkout/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout/jquery.timepicker.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static 'css/checkout/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout/icomoon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/checkout/style.css' %}">
+  <div class="goto-here">
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 ftco-animate">
+						<form method='POST' action="{% url 'checkout' %}" class="billing-form">
+							{% csrf_token %}
+							<h3 class="mb-4 billing-heading">Billing Details</h3>
+	          	<div class="row align-items-end">
+	          		<div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="firstname">First Name</label>
+	                  <input type="text" name="Bfirst_name" class="form-control" placeholder="Enter First Name">
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="lastname">Last Name</label>
+	                  <input type="text" name="Blast_name" class="form-control" placeholder="Enter Last Name">
+	                </div>
+                </div>
+                <div class="w-100"></div>
+		            <div class="col-md-12">
+		            	<div class="form-group">
+		            		<label for="country">State</label>
+		            		<div class="select-wrap">
+		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                  <select name="Bstates" id="Bstates" class="form-control">
+		                  	<option value="Maharashtra">Maharashtra</option>
+		                    <option value="Tamil Nadu">Tamil Nadu</option>
+		                    <option value="West Bengal">West Bengal</option>
+		                    <option value="Telangana">Telangana</option>
+		                    <option value="Delhi">Delhi</option>
+		                    <option value="Karnataka">Karnataka</option>
+							<option value="Gujarat">Gujarat</option>
+		                  </select>
+		                </div>
+		            	</div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress">Street Address</label>
+	                  <input type="text" name="Bstreet" class="form-control" placeholder="House number and street name">
+	                </div>
+		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                  <input type="text" name="Bapartment" class="form-control" placeholder="Apartment, suite, unit etc: (optional)">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="towncity">Town / City</label>
+	                  <input type="text" name="Bcity" class="form-control" placeholder="">
+	                </div>
+		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+		            		<label for="postcodezip">Postcode / ZIP *</label>
+	                  <input type="text" name="Bzip" class="form-control" placeholder="">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="phone">Phone</label>
+	                  <input type="text" name="Bphone" class="form-control" placeholder="">
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="emailaddress">Email Address</label>
+	                  <input type="email" name="Bemail" class="form-control" placeholder="">
+	                </div>
+                </div>
+                <div class="w-100"></div>
+                <div class="col-md-12">
+                	<div class="form-group mt-4">
+						<div class="radio">
+							<label><input type="radio" name="optradio" value="2"> Ship to different address</label>
+						</div>
+					</div>
+                </div>
+				<div class="shipping">
+				<h3 class="mb-4 billing-heading">Shipping Details</h3>
+	          	<div class="row align-items-end">
+	          		<div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="firstname">First Name</label>
+	                  <input type="text" name="Sfirst_name" class="form-control" placeholder="Enter First Name">
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="lastname">Last Name</label>
+	                  <input type="text" name="Slast_name" class="form-control" placeholder="Enter Last Name">
+	                </div>
+                </div>
+                <div class="w-100"></div>
+		            <div class="col-md-12">
+		            	<div class="form-group">
+		            		<label for="country">State / Country</label>
+		            		<div class="select-wrap">
+		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                  <select name="Sstates" id="Sstates" class="form-control">
+							<option value="Maharashtra">Maharashtra</option>
+		                    <option value="Tamil Nadu">Tamil Nadu</option>
+		                    <option value="West Bengal">West Bengal</option>
+		                    <option value="Telangana">Telangana</option>
+		                    <option value="Delhi">Delhi</option>
+		                    <option value="Karnataka">Karnataka</option>
+							<option value="Gujarat">Gujarat</option>
+		                  </select>
+		                </div>
+		            	</div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="streetaddress">Street Address</label>
+	                  <input type="text" name="Sstreet" class="form-control" placeholder="House number and street name">
+	                </div>
+		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                  <input type="text" name="Sapartment" class="form-control" placeholder="Appartment, suite, unit etc: (optional)">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+	                	<label for="towncity">Town / City</label>
+	                  <input type="text" name="Scity" class="form-control" placeholder="">
+	                </div>
+		            </div>
+		            <div class="col-md-6">
+		            	<div class="form-group">
+		            		<label for="postcodezip">Postcode / ZIP *</label>
+	                  <input type="text" name="Szip" class="form-control" placeholder="">
+	                </div>
+		            </div>
+		            <div class="w-100"></div>
+		            <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="phone">Phone</label>
+	                  <input type="text" name="Sphone" class="form-control" placeholder="">
+	                </div>
+	              </div>
+	              <div class="col-md-6">
+	                <div class="form-group">
+	                	<label for="emailaddress">Email Address</label>
+	                  <input type="email" name="Semail" class="form-control" placeholder="">
+	                </div>
+				</div>
+                </div>
+	            </div>
+			</div>
+	          <!-- END -->
+
+
+		<div class="col-md-6 pl-0">
+		<div class="cart-detail bg-light p-3 p-md-4">
+			<h3 class="billing-heading mb-4">Payment Method</h3>
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="radio">
+									<label><input type="radio" name="optradio1" class="mr-2"> Direct Bank Tranfer</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="radio">
+									<label><input type="radio" name="optradio1" class="mr-2"> Card Payment</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="radio">
+									<label><input type="radio" name="optradio1" class="mr-2"> Paypal</label>
+								</div>
+							</div>
+						</div>
+					</div>
+	</div><br>
+
+	<div class="payment">
+		<h3 class="mb-4 billing-heading">Payment Details</h3>
+		  <div class="row align-items-end">
+			  <div class="col-md-12">
+			<div class="form-group">
+				<label for="cardnumber">Card Number</label>
+			  <input type="number" name="cardno" class="form-control" placeholder="">
+			</div>
+		  </div>
+		  <div class="col-md-12">
+			<div class="form-group">
+				<label for="cardname">Name on the Card</label>
+			  <input type="text" name="namecard" class="form-control" placeholder="">
+			</div>
+		</div>
+			<div class="col-md-6">
+				<div class="form-group">
+				<label for="validity">Valid Through</label>
+			  <input type="month" name="validity" class="form-control" placeholder="">
+			</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label for="cvv">CVV</label>
+			  <input type="password" name="cvv" class="form-control" placeholder="" maxlength="3">
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	  
+	</div>
+
+	          	<div class="col-md-6 cart-total-main">
+	          		<div class="cart-detail cart-total bg-light p-3 p-md-4">
+	          			<h3 class="billing-heading mb-4">Cart Total</h3>
+	          			<p class="d-flex">
+		    						<span>Subtotal</span>
+		    						<span>₹{{ price }}</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Delivery</span>
+		    						<span>₹0.00</span>
+		    					</p>
+		    					<p class="d-flex">
+		    						<span>Discount</span>
+		    						<span>₹{{ offer }}</span>
+		    					</p>
+		    					<hr>
+		    					<p class="d-flex total-price">
+		    						<span>Total</span>
+		    						<span>₹{{ newPp }}</span>
+		    					</p>
+								
+						<div class="form-group">
+							<div class="col-md-12">
+								<div class="checkbox">
+									<label><input type="checkbox" value="" class="mr-2"> I have read and accept the terms and conditions</label>
+								</div>
+							</div>
+						</div>
+								<p><button type='submit' class="btn btn-primary px-4">Place an order</a></p>
+								</div>
+	          	</div>
+	          	</form>
+           <!-- .col-md-8 -->
+        </div>
+      </div>
+    </section> <!-- .section -->
+		
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="{% static 'js/checkout/jquery.min.js' %}"></script>
+  <script src="{% static 'js/checkout/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/checkout/popper.min.js' %}"></script>
+  <script src="{% static 'js/checkout/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/checkout/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/checkout/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/checkout/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/checkout/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/checkout/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/checkout/aos.js' %}"></script>
+  <script src="{% static 'js/checkout/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/checkout/bootstrap-datepicker.js' %}"></script>
+  <script src="{% static 'js/checkout/scrollax.min.js' %}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="{% static 'js/checkout/google-map.js' %}"></script>
+  <script src="{% static 'js/checkout/main.js' %}"></script>
+
+  <script>
+		$(document).ready(function(){
+
+		var quantitiy=0;
+		   $('.quantity-right-plus').click(function(e){
+		        
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        
+		        // If is not undefined
+		            
+		            $('#quantity').val(quantity + 1);
+
+		          
+		            // Increment
+		        
+		    });
+
+		     $('.quantity-left-minus').click(function(e){
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        
+		        // If is not undefined
+		      
+		            // Increment
+		            if(quantity>0){
+		            $('#quantity').val(quantity - 1);
+		            }
+		    });
+		    
+		});
+	</script>
+	</div>
+{% endblock content %}

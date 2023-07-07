@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+
+    <div class="customer">
+        <div class="container fluid">
+            <div class=row>
+            <div class="col-md-6 col-sm-12">
+                <img id="aloe"src="https://i.pinimg.com/originals/cd/93/c6/cd93c6d9c31dd895a4634650e1331b72.png"/>
+            </div>
+            <div class="col-md-6 col-sm-12 justify-content-end">
+                <form id="contactForm" method='post'> 
+
+                    {% csrf_token %}
+
+                <h3>Login Here!</h3>
+            <fieldset>
+                <div class="mb-3">
+                <label for="email" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Username" required autofocus> 
+                </div>
+                <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" placeholder="Password" required autofocus> 
+                </div>
+                <a class="registerbtn" href="{% url 'register_customer' %}">Not Registered yet?</a><br>
+            <button type="submit" class="btn btn-secondary">Login</button>
+            </fieldset>
+        </form>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock content %}

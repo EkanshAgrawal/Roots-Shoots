@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+{% load static %}
+{% load get_plant_Cat %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog_details.css' %}"/>
+<section id="blog-article">
+        <div class="article-container">
+            <div class="heading">
+                <h2>{{ blog.blog_title }}</h2>
+            </div>
+            <hr style="width: 50%; margin: 0 auto 5px auto;">
+            <div class="author">
+                ~<b>{{ blog.author }}</b>
+            </div>
+            <div class="article-image">
+                <img src="/media/{{ blog.blog_image }}">
+            </div>
+            <br>
+            <div class="article-text">
+                      {{ blog.blog_content|linebreaks }}
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock content %}

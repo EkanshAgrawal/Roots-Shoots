@@ -1,0 +1,113 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}" />
+<div class="customer">
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <img
+                    id="aloe"
+                    src="https://i.pinimg.com/originals/cd/93/c6/cd93c6d9c31dd895a4634650e1331b72.png"
+                />
+            </div>
+            <div class="col-md-6 col-sm-12 justify-content-end">
+                <form id="contactForm" method="post">
+                    {% csrf_token %}
+
+                    <h3>Register Here Lovely Customer!</h3>
+                    <fieldset>
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label"
+                                >First Name</label
+                            >
+                            <input
+                                type="text"
+                                name="first_name"
+                                class="form-control"
+                                placeholder="First Name"
+                                required
+                                autofocus
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label"
+                                >Last Name</label
+                            >
+                            <input
+                                type="text"
+                                name="last_name"
+                                class="form-control"
+                                placeholder="Last Name"
+                                required
+                                autofocus
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"
+                                >Email Address</label
+                            >
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Email Address"
+                                required
+                                autofocus
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"
+                                >Username</label
+                            >
+                            <input
+                                type="text"
+                                name="username"
+                                class="form-control"
+                                placeholder="Username"
+                                required
+                                autofocus
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label"
+                                >Password</label
+                            >
+                            <input
+                                type="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Password"
+                                required
+                                autofocus
+                            />
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label"
+                                >Confirm Password</label
+                            >
+                            <input
+                                type="password"
+                                name="confirm_password"
+                                class="form-control"
+                                placeholder="Confirm Password"
+                                required
+                                autofocus
+                            />
+                        </div>
+                        <a class="registerbtn" href="{% url 'register_vendor' %}">Are you a vendor?</a><br>
+                        <button type="submit" class="btn btn-secondary">
+                            Register
+                        </button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    {% for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock content %}

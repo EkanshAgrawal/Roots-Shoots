@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    
+    <title>Roots & Shoots</title>
+</head>
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    {% block home  %}
+    {% endblock home %}
+
+    <div class="base-container">
+    {% block content  %}
+    {% endblock content %}
+    </div>
+
+   
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+</body>
+</html>

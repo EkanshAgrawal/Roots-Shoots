@@ -1,0 +1,118 @@
+{% extends "base-home.html" %}
+{% load static %}
+
+{% block home %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}">
+<div>
+<section class="hero-area">
+    <div class="hero-post-slides owl-carousel">
+
+        <!-- Single Hero Post -->
+        <div class="single-hero-post bg-overlay">
+            <!-- Post Image -->
+            <div class="slide-img slide-img1 bg-img" ></div>
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Content -->
+                        <div class="hero-slides-content text-center">
+                            <h2>Plants exist in the weather and light rays that surround them</h2>
+                            <p>Our website is a one stop destination to all people interested in gardening, providing them with the saplings, seeds, tools, from respective vendors andlocal nurseries and giving them all needed information and support. Our community tab is a space for our customers to interact, learn, and show offtheir gardens.</p>
+                            <div class="welcome-btn-group">
+                                <a href="{% url 'itemlist' %}" class="btn alazea-btn mr-30 get-started">GET STARTED</a>
+                                <a href="{% url 'contact' %}" class="btn alazea-btn active contact">CONTACT US</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Single Hero Post -->
+        <div class="single-hero-post bg-overlay">
+            <!-- Post Image -->
+            <div class="slide-img slide-img2 bg-img"></div>
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <!-- Post Content -->
+                        <div class="hero-slides-content text-center">
+                            <h2>Plants exist in the weather and light rays that surround them</h2>
+                            <p>Our website is a one stop destination to all people interested in gardening, providing them with the saplings, seeds, tools, from respective vendors andlocal nurseries and giving them all needed information and support. Our community tab is a space for our customers to interact, learn, and show offtheir gardens.</p>
+                            <div class="welcome-btn-group">
+                                <a href="{% url 'itemlist' %}" class="btn alazea-btn mr-30 get-started">GET STARTED</a>
+                                <a href="{% url 'contact' %}" class="btn alazea-btn active contact">CONTACT US</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--  Hero Area End ##### -->
+
+
+<!-- ##### Product Area Start ##### -->
+<section class="new-arrivals-products-area section-padding-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Section Heading -->
+                <div class="section-heading text-center">
+                    <h2>NEW ARRIVALS</h2>
+                    <p>We have the latest products, it must be exciting for you</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Single Product Area -->
+            {% for item in items %}
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-product-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                        <!-- Product Image -->
+                        <div class="product-img">
+                            <a href="shop-details.html"><img src="/media/{{ item.3 }}" %} alt=""></a>
+                        </div>
+                        <!-- Product Info -->
+                        <div class="product-info mt-15 text-center">
+                            <a href="{% url 'itemView' the_slug=item.2 %}">
+                                <p>{{ item.0 }}</p>
+                            </a>
+                            <h6>₹{{ item.1 }}</h6>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="col-12 text-center">
+                <a href="#" class="btn alazea-btn">View All</a>
+                <!--View all will lead to products page-->
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ##### Product Area End ##### -->
+
+
+
+{% include 'mission.html' %}
+</div>
+
+<!-- ##### All Javascript Files ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{% static 'js/home/jquery/jquery-2.2.4.min.js' %}"></script>
+<!-- Popper js -->
+<script src="{% static 'js/home/bootstrap/popper.min.js' %}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'js/home/bootstrap/bootstrap.min.js' %}"></script>
+<!-- All Plugins js -->
+<script src="{% static 'js/home/plugins/plugins.js' %}"></script>
+<!-- Active js -->
+<script src="{% static 'js/home/active.js' %}"></script>
+
+{% endblock home %}

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<div id="app">
+
+    <!-- Header -->
+    <header class="cart-container">
+      <h1 style="display: inline;">Shopping Cart</h1>
+      
+      <span class="count" style="margin-top: 18px; font-size: 14px;">{{ items|length }} items in the bag</span>
+    </header>
+    <!-- End Header -->
+    <!-- Product List -->
+    <!-- <section class="cart-container">
+      <div v-if="products.length > 0">
+        <ul class="products">
+        <li class="row" v-for="(product, index) in products">
+          <div class="col left">
+            <div class="thumbnail">
+              <a href="#">
+                <img :src="product.image" :alt="product.name" />
+              </a>
+            </div>
+            <div class="detail">
+              <div class="name"><a href="#">{{ product.name }}</a></div>
+              <div class="description">{{ product.description }}</div>
+              <div class="price">{{ product.price }}</div>
+            </div>
+          </div>
+  
+          <div class="col right">
+            <div class="quantity">
+              <input type="number" class="quantity" step="1" :value="product.quantity" @input="updateQuantity(index, $event)" @blur="checkQuantity(index, $event)" />
+            </div>
+            
+            <div class="remove">
+              <svg @click="removeItem(index)" version="1.1" class="close" xmlns="//www.w3.org/2000/svg" xmlns:xlink="//www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 60 60" enable-background="new 0 0 60 60" xml:space="preserve"><polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812"></polygon></svg>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+      <div v-else class="empty-product">
+        <h3>There are no products in your cart.</h3>
+        <button>Shopping now</button>
+      </div>
+    </section>
+    <section class="cart-container" v-if="products.length > 0">
+      <div class="promotion">
+      </div>
+  
+      <div class="summary">
+        <ul>
+          <li>Subtotal <span>{{ subTotal }}</span></li>
+          <li v-if="discount > 0">Discount <span>{{ discountPrice }}</span></li>
+          <li>Tax <span>{{ tax }}</span></li>
+          <li class="total">Total <span>{{ totalPrice }}</span></li>
+        </ul>
+      </div>
+  
+      <div class="checkout">
+        <button type="button">Check Out</button>
+      </div>
+    </section> -->
+    <table class="items">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if items|length is 0 %}
+        <tr>
+          <td colspan="2" style="text-align: center; height: 100px; font-size: 18px;">
+            Your Cart is Empty
+          </td>
+        </tr>
+        {% else %}
+          {% for item in items %}
+          <tr>
+            <td>
+              <div class="item">
+                <div class="item-front">
+                  <img src="/media/{{ item.0 }}" />
+                </div>
+                <div class="item-back">
+                  <img src="/media/{{ item.0 }}" />
+                </div>
+              </div>
+              <p>
+                  <span class="itemname">{{ item.1 }}<br /></span>
+              </p>
+              <p class="description">{{ item.2 }}</p>
+            </td>
+            <td class="itemTotal">{{ item.3 }}</td>
+          </tr>        
+          {% endfor %}
+        {% endif %}
+        <tr>
+          <td style="text-align: left; font-size: 18px;">
+            {% if items|length > 0 %}
+              <a style="font-size: 16px; text-decoration: none;" href="{% url 'clear_cart' %}">Clear Cart</a>
+            {% endif %}
+          </td>
+          <td style="text-align: right; font-size: 18px;">
+            {% if items|length > 0 %}
+              <a style="font-size: 16px; text-decoration: none;" href="{% url 'checkout' %}">Checkout</a>
+            {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="{% static 'js/cart.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<script src="{% static 'https://code.jquery.com/jquery-1.10.2.min.js' %}"></script>
+<link href="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+<script src="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.0/css/ionicons.min.css" integrity="sha256-F3Xeb7IIFr1QsWD113kV2JXaEbjhsfpgrKkwZFGIA4E=" crossorigin="anonymous" />
+<link rel="stylesheet" href="{% static 'css/faq.css' %}">
+
+<div class="container-fluid faq-content">
+    <!-- Row -->
+    <div class="row">
+        <div class="col-xl-12 pa-0">
+            <!-- <div class="faq-search-wrap bg-teal-light-3">
+                <div class="container">
+                    <h1 class="display-5 text-white mb-20">Ask a question or browse by category below.</h1>
+                    <div class="form-group w-100 mb-0">
+                        <div class="input-group">
+                            <input class="form-control form-control-lg filled-input bg-white" placeholder="Search by keywords" type="text">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="container mt-sm-60 mt-30">
+                <div class="hk-row">
+                   
+                    <div class="col-xl-8" style="margin-left: 20%;">
+                        <div class="card card-lg">
+                            <h3 class="card-header border-bottom-0">
+                                            Frequently Asked Questions
+                                        </h3>
+                            <div class="accordion accordion-type-2 accordion-flush" id="accordion_2">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between activestate">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_1i" aria-expanded="false">What is the difference between bright, medium and low light plants?</a>
+                                    </div>
+                                    <div id="collapse_1i" class="collapse" data-parent="#accordion_2" role="tabpanel">
+                                        <div class="card-body pa-15 pl-5 small">Bright light plants will do well in direct or strong sunlight for the most part of a day. Medium light plants should stay out of the direct sunlight. They should be placed in a bright room and will enjoy partial or filtered sunlight. Low light plants prefer to stay in the shade or to be displayed under fluorescent light.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_2i" aria-expanded="false">Which indoor plants are the easiest to care for?</a>
+                                    </div>
+                                    <div id="collapse_2i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Pothos, Aglaonema, Sansevieria, Dracaena Lisa, Spider, Corn, Iron, ZZ plants, Bird’s Nest fern, Cacti, Succulents.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_3i" aria-expanded="false">Which plants are hardy and can take some level of neglect?</a>
+                                    </div>
+                                    <div id="collapse_3i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Iron plant is the toughest. Sansevieria, ZZ, Aglaonema, Dracaena Lisa, Dracaena Art, Yucca, Jade plants, Ponytail Palm, Succulents and Cacti can deal well with some degree of neglect.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_4i" aria-expanded="false">We only have the fluorescent light in our office. Which plants should we choose?</a>
+                                    </div>
+                                    <div id="collapse_4i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Dracaena Lisa, Corn plant, Sansevieria, Iron plant, ZZ plant, Aglaonema. These plants will survive in very well lit with the fluorescent light space. The light must be on for at least 8-10 hours a day.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_5i" aria-expanded="false">I don't have much light in my home. Which plants should I try?</a>
+                                    </div>
+                                    <div id="collapse_5i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Iron, Aglaonema, Dracaena Lisa, Sansevieria plants.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_6i" aria-expanded="false">I have a lot of sun in my space. Which plants should I choose?</a>
+                                    </div>
+                                    <div id="collapse_6i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Ponytail and Bella palm, Bird of Paradise, Yucca, Jade plant, Majesty palm.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_7i" aria-expanded="false">Do you offer any care tips for plants?</a>
+                                    </div>
+                                    <div id="collapse_7i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">With a plant of your choice, you will receive printed basic care tips to help you to understand your plant better and get a general understanding of its care. You can always reach out to our customer service at helpdesk@roots&shoots.com if you have any questions or concerns.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_8i" aria-expanded="false">What fertilizer do you recommend for indoor plants?</a>
+                                    </div>
+                                    <div id="collapse_8i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Most plants need to be fertilized during Spring time - March, April and May. The fertilizer we use can be applied anything time. Its unique formula will help your plants grow and thrive with this. It contains oilseed extract, a renewable source of plant nutrition which contains amino acids known to improve overall plant health. No GMOs. Pathogen free - heavy metals free. Gentle on plants - no root burn issues.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_9i" aria-expanded="false">How can I tell if a plant is struggling?</a>
+                                    </div>
+                                    <div id="collapse_9i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">Here are some general signs of a problem:<br>- yellowing or dropping leaves;<br>- leaf spots appear brown with a yellow halo;<br>- brown or yellow spots or brown edges on leaves;<br>- leaves are curling in;<br>- droopiness or wilting;<br>- white spots or web are showing on a plant;<br>- loss of leaf color;<br>- weak growth.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_10i" aria-expanded="false">Can I have a plant replaced using an existing planter?</a>
+                                    </div>
+                                    <div id="collapse_10i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">If you have purchased a plant potted in one of our Lechuza self-watering planters, you can replace your plant using an existing planter. The same type or any other type of a plant that is available for this planter shape and color.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_11i" aria-expanded="false">Can I replace a plant I bought in nursery pot?</a>
+                                    </div>
+                                    <div id="collapse_11i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">If your plant dies within first 3 days, we will replace it free of charge. After 3 days period, we don't offer any replacement discounts.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_12i" aria-expanded="false">What if my plants/planters arrived damaged?</a>
+                                    </div>
+                                    <div id="collapse_12i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">If your plant(s) or planter(s) arrive damaged, we will replace it free of charge. Notify us within 24 hours via email helpdesk@roots&shoots.com and we will send a replacement asap. Please include pictures and order number.</div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse_13i" aria-expanded="false">I have suggestions/feedback for roots&shoots.com? How do i convey the same to you?</a>
+                                    </div>
+                                    <div id="collapse_13i" class="collapse" data-parent="#accordion_2">
+                                        <div class="card-body pa-15 pl-5 small">We will be happy to hear from you. Please write to us on roots&shoots@gmail.com</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Row -->
+</div>
+
+{% endblock content %}

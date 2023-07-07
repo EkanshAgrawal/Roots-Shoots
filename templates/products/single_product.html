@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% load static %}
+ 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/single_product.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+<script src="https://use.fontawesome.com/a6f0361695.js"></script>
+<script>
+	window.CSRF_TOKEN= {% csrf_token %} ;
+</script>
+<script>
+	
+	function f1(){
+		var token = '{{ csrf_token }}';
+		console.log(token);
+		fetch("{% url 'itemView' the_slug=products.9 %}", {
+		method: "POST",
+		headers:{'X-CSRFToken':token},
+		body: JSON.stringify({user: "{{ user }}", item : "{{ products.0 }}" })
+		}).then(res => {
+		console.log("Request complete! response:", res);
+		}).catch(err => {
+			console.log(err);
+		});
+	}
+</script>
+
+<div class = "card-wrapper">
+	  <div class = "product-imgs" style="width: 45%; margin: 1%;">
+		<div class = "img-display">
+		  <div class = "img-showcase">
+			{% for img in images %}
+				<img src = " /media/{{ img.image }}" >
+			{% endfor %}
+		  </div>
+		</div>
+		<div class = "img-select">
+		  
+		  {% for img in images %}
+		  		<div class = "img-item">
+					<a href = "#" data-id = "{{ forloop.counter }}">
+			  			<img src = "/media/{{ img.image }}" >
+					</a>
+		  		</div>
+		  
+		  {% endfor %}
+		  
+		  
+		</div>
+	  </div>
+	  <!-- card right -->
+	  <div class = "product-content">
+		<h2 class = "product-title">{{ products.0 }}</h2>
+		<div class = "product-rating">
+		  <i class = "fas fa-star"></i>
+		  <i class = "fas fa-star"></i>
+		  <i class = "fas fa-star"></i>
+		  <i class = "fas fa-star"></i>
+		  <i class = "fas fa-star-half-alt"></i>
+		  <span>{{ products.7 }}({{ products.6 }})</span>
+		</div>
+
+		<div class = "product-price">
+		  <p class = "last-price">Old Price: <span> ₹ {{ products.1 }}</span></p>
+		  <p class = "new-price" >New Price: <span> ₹ {{ products.3 }} ({{ products.2 }}%)</span></p>            
+		</div>
+		<p class="pm" style="position: relative; bottom: 1.5%;">(MRP inclusive of all taxes)</p>
+
+		<div class = "product-detail">
+		  <ul>
+			<li>Availablity: <span>{{ products.4 }}</span></li>
+			<li>Shipping Area: <span>All over India</span></li>
+			<li>Shipping Charges: <span>₹{{ products.5 }}</span></li>
+		  </ul>
+		</div>
+		<div class="box">
+			<div class="border-title">
+			  <h2>TODAY'S OFFERS</h2>
+			</div>
+			<div class="border-content" style="color: green; font-weight: 1000;">
+			  <ul>
+				  <li>Rs 59 Tulsi Plant Free</li>
+				  <li>2% Cashback</li>
+			  </ul>                  
+			</div>       
+		 </div>
+	  <p class="note" style="font-size: 0.8rem;">*Images are for reference purposes only. Actual product may vary in shape or appearance based on climate, age, height, etc. The product is replaceable but not returnable.</p><br>
+	  <div class="button-abc">
+		  <button class="cart-button" onClick="f1();">
+			  <span class="add-to-cart" style="color: black; font-weight: 900; font: size 1rem;">Add to cart</span>
+			  <span class="added" style="color: black; font-weight: 900; font-size:1rem;">Added</span>
+			  <i class="fas fa-shopping-cart"></i>
+			  <i class="fas fa-box"></i>
+		  </button>
+		  <div class="sub-main" style="position: absolute; top:8%; right:25%;">
+			  <button class="button-three">
+				  <span class="btn-b" style="font-weight: 900; font-size: 1rem;">BUY NOW</span>
+			  </button>
+		  </div>
+
+	  </div>
+		  
+	  </div>       
+		
+	</div>
+
+
+ <div class="card1">
+  <div class="product-description" style="margin-left: 3%;">
+	<h2 class="d-title">DESCRIPTION</h2>
+	<p>{{ des.0 }}</p>
+	<br><h2>PLANT SPECIFICATIONS:</h2>
+	<div class="plant-specification">
+		
+		<ul>
+			<li class="specification" style="font-weight: 600;">COMMON NAME:&nbsp;<span class="s" style="font-weight: 400;">{{ des.1 }}</span></li>
+			<li class="specification" style="font-weight: 600;">PLANT SPREAD:&nbsp; <span class="s" style="font-weight: 400;">{{ des.2 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Maximum Reachable Height:&nbsp; <span class="s" style="font-weight: 400;">{{ des.3 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Sunlight:&nbsp; <span class="s" style="font-weight: 400;" >{{ des.4 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Watering:&nbsp; <span class="s" style="font-weight: 400;">{{ des.5 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Soil:&nbsp; <span class="s" style="font-weight: 400;">{{ des.6 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Temperature:&nbsp; <span class="s" style="font-weight: 400;">{{ des.7 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Fertilizer:&nbsp; <span class="s" style="font-weight: 400;">{{ des.8 }}</span></li>
+			<li class="specification" style="font-weight: 600;">Bloom Time:&nbsp; <span class="s" style="font-weight: 400;">{{ des.9 }}</span></li>
+		</ul>
+	   
+
+	</div>
+	<br><h2>PLANTING AND CARE</h2>
+	
+	<div class="plant-care">
+		<p>{{ products.8 }} </p>
+	</div>
+	{% if faq is None %}
+		<br><h2>FREQUENTLY ASKED QUESTIONS</h2>
+		<div class="questions">
+			{% for f in faq %}
+				<p class="q" style="font-weight: 600; color: #289599;">{{ forloop.counter }}. {{ f.question }}</p>
+				<p>{{ f.answer }}</p><br>
+			{% endfor %}
+		</div>
+	{% endif %}
+
+</div> 
+
+ </div>
+  
+ 
+  <br><h2 id="fh2">WRITE A REVEIW!</h2>
+<h6 id="fh6">We appreciate your review. Your review will help us to improve our quality products, and customer services.</h6>
+
+
+<form id="feedback" action="review/{{ products.9 }}" method = "post">
+{% csrf_token %}
+<div class="pinfo">Your personal info</div>
+
+<div class="form-group">
+<div class="col-md-4 inputGroupContainer"  style="max-width: 100%;">
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-user"></i></span>
+<input  name="name" placeholder="John Doe" class="form-control"  type="text">
+</div>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-md-4 inputGroupContainer" style="max-width: 100%;">
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+  <input name="email" type="email" class="form-control" placeholder="john.doe@yahoo.com">
+</div>
+</div>
+</div>
+
+<div class="pinfo">Rate the product</div>
+
+
+<div class="form-group">
+<div class="col-md-4 inputGroupContainer"  style="max-width: 100%;">
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-star"></i></span>
+ <select class="form-control" id="rate" name = 'rate' >
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+  </select>
+  </div>
+</div>
+</div>
+
+<div class="pinfo"  >Write your feedback.</div>
+
+
+<div class="form-group">
+<div class="col-md-4 inputGroupContainer"  style="max-width: 100%;"	>
+<div class="input-group">
+<span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+<textarea class="form-control" id="review" rows="3" name="feeds"></textarea>
+
+  </div>
+</div>
+</div>
+<div style="text-align: center;">
+<button type="submit" class="btn btn-primary" style="margin: 0px auto;">Submit</button>
+</div>
+
+</form>   
+  
+<script src="{% static 'js/single_product.js' %}"></script>
+<script src="{% static 'js/single_product1.js' %}"></script>
+
+
+{% endblock content %}

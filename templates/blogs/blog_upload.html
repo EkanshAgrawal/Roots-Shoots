@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/blog_upload.css' %}"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<h2  class="title" style="font-weight: 800; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; text-align: center; font-size: 2rem;">ADD BLOG...</h2>
+<div class="container blog_upload_container" style="width: 100vw;">
+  <form method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+
+    <label for="title" style="font-weight: 600;">TITLE</label>
+    <input type="text" id="title" name="blog_title" placeholder="Title of the blog....">       
+            
+    <label for="category"style="font-weight: 600;" >CATEGORY</label>
+    <select id="category" name="category">
+      <option value='plant'>PLANT TALK</option>
+      <option value='kitchen'>KITCHEN GARDENING</option>
+      <option value='styling'>PLANT STYLING</option>
+      <option value='development'>SUSTAINABLE DEVELOPEMENT</option>
+      <option value='gardening'>GARDENING DIY'S</option>
+    </select>
+
+    <label for="content" style="font-weight: 600; margin-top: 2%;">CONTENT</label>
+    <textarea id="content" name="blog_content" placeholder="Write your blog" style="height:250px"></textarea>
+      
+  <div class="file-upload mw-100" style="margin-top: 2%;">
+      
+    
+      <div class="image-upload-wrap" style="margin-top: 0px; margin-bottom: 1%;">
+        <input class="file-upload-input" type='file' name="blog_image" onchange="readURL(this);"  />
+        <div class="drag-text">
+          <h3>Drag and drop a file or select add Image</h3>
+        </div>
+      </div>
+      <div class="file-upload-content">
+        <img class="file-upload-image" src="#" alt="your image" />
+        <div class="image-title-wrap">
+          <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+        </div>
+      </div>
+    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+  </div>    
+  
+  <button class="sbtn" style="margin-top: 2%;">
+      <span>SUBMIT</span>
+  </button>
+  </form>
+</div>
+
+<script type="text/javascript" src="{% static 'js/blog_upload.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/blog_upload1.js' %}"></script>
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+{% endblock content %}
+

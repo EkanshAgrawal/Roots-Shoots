@@ -1,0 +1,108 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'css/items_display.css' %}">
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+<div class="items_display">
+<div class="filter"> <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="true" aria-controls="mobile-filter">Filters<span class="fa fa-filter pl-1"></span></button>
+</div>
+<div id="mobile-filter">
+    <p class="pl-sm-0 pl-2"> Home | <b>All Plants</b></p> 
+    <div class="border-bottom pb-2 ml-2">
+        <h4 id="burgundy">Filters</h4>
+    </div>
+    <div class="py-2 border-bottom ml-3">
+        <h6 class="font-weight-bold">Categories</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+        <form type="get" action="{% url 'itemlist' %}">
+            <div class="form-group"> <input type="checkbox" value="plants" name="cat"> <label for="plants">Plants</label> </div>
+            <div class="form-group"> <input type="checkbox" value="soil" name="cat"> <label for="breakfast">Soil</label> </div>
+            <div class="form-group"> <input type="checkbox" value="seeds" name="cat"> <label for="healthy">Seeds</label> </div>
+            <div class="form-group"> <input type="checkbox" value="fertilizer" name="cat"> <label for="healthy">Fertilizer</label> </div>
+            <div class="form-group"> <input type="checkbox" value="tree" name="cat"> <label for="healthy">Tree</label> </div>
+
+        
+    </div>
+    <div class="py-2 ml-3">
+        <h6 class="font-weight-bold">Top Offers</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+        
+            <div class="form-group"> <input type="checkbox" value="25" name="offer" > <label for="25">25% off</label> </div>
+            <div class="form-group"> <input type="checkbox" value="15" name="offer" > <label for="15">15% off</label> </div>
+            <div class="form-group"> <input type="checkbox" value="5"  name="offer"> <label for="5" id="off">5% off</label> </div>
+
+        </form>
+    </div>
+</div>
+<!-- Sidebar filter section -->
+<section id="sidebar">
+    <p> Home | <b>All Plants</b></p>
+    <div class="border-bottom pb-2 ml-2">
+        <h4 id="burgundy">Filters</h4>
+    </div>
+    <div class="py-2 border-bottom ml-3">
+        <h6 class="font-weight-bold">Categories</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+        <form type="get" action="{% url 'itemlist' %}">
+            <div class="form-group"> <input type="checkbox" value="plants" name="cat"> <label for="plants">Plants</label> </div>
+            <div class="form-group"> <input type="checkbox" value="soil" name="cat"> <label for="breakfast">Soil</label> </div>
+            <div class="form-group"> <input type="checkbox" value="seeds" name="cat"> <label for="healthy">Seeds</label> </div>
+            <div class="form-group"> <input type="checkbox" value="fertilizer" name="cat"> <label for="healthy">Fertilizer</label> </div>
+            <div class="form-group"> <input type="checkbox" value="tree" name="cat"> <label for="healthy">Tree</label> </div>
+
+    </div>
+    <div class="py-2 ml-3">
+        <h6 class="font-weight-bold">Top Offers</h6>
+        <div id="orange"><span class="fa fa-minus"></span></div>
+        
+            <div class="form-group"> <input type="checkbox" value="25" name="offer"> <label for="25">25% off</label> </div>
+            <div class="form-group"> <input type="checkbox" value="15" name="offer"> <label for="15">15% off</label> </div>
+            <div class="form-group"> <input type="checkbox" value="5" name="offer"> <label for="5off" id="off">5% off</label> </div>
+            
+            <button type="submit" class="applybtn btn btn-secondary">APPLY</button>
+        </form>
+
+    </div>
+</section>
+<!-- products section -->
+<section id="products">
+    <div class="container">
+        <div class="d-flex flex-row">
+            <div class="text-muted m-2" id="res">{{ items|length }} results found </div>
+        </div>
+    </div>
+</section>
+<section id="items">
+    <div class="item-container">
+        {% for item in items %}
+        <!-- Individual Item -->
+        <div class="card">
+            <!-- Item Image -->
+            <a href="{% url 'itemView' the_slug=item.6 %}">
+            <div class="card-image" style="background: url('/media/{{ item.0 }}') no-repeat; background-size: 100% 100%;">
+                {% if item.7 != 0 %}
+                <span class="offers">Save {{ item.7 }}%</span>
+                {% endif%}
+            </div></a> 
+            <!-- Item Description -->
+            <div class="card-description">
+                {% if item.5 != item.2 %}
+                <span class="oldprice"><strike>Rs. {{ item.2 }}</strike></span>
+                {% endif %}
+                <br><span class="price">Rs. {{ item.5 }} <br> </span>
+                <a class="title" href="{% url 'itemView' the_slug=item.6 %}">{{ item.4}} <br></a>
+                Rating : {{ item.1 }} <br>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+</div>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+
+{% endblock content %}

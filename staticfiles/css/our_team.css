@@ -1,0 +1,249 @@
+.section-4{
+  margin-top: 13%;
+  margin-left: 1%;
+  overflow-x: hidden;
+}
+
+.cover{
+    background: url("wallpaperbetter.com_1920x1080.jpg");
+    color:whitesmoke;
+}
+.maintext{
+    padding-top: 100px;
+}
+.mute{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color:rgb(194, 192, 192);
+}
+.cover h3{
+    padding-bottom: 50px;
+}
+.col-md-12 h2{
+    padding-top:50px;
+}
+.col-md-3 h3{
+    padding-top:0px;
+    font-weight:600 ;
+}
+.col-md-3 p{
+    font-style: oblique;
+    font-size:18px;
+}
+.customer form{
+    padding-top:100px;
+}
+footer{
+    background-color:#999999;
+}
+footer{
+    padding-top:50px;
+    padding-bottom:20px;
+    width:100%;
+    color:white;
+  }
+  .footer h4{
+    padding-bottom:10px;
+}
+#fb{
+    padding-right:18px;
+  }
+.bottom{
+    padding-top: 20px;
+}
+.btn{
+    background-color:rgb(2, 34, 2);
+}
+
+
+
+
+/*blog*/
+.onee{
+    background: url("wallpaperbetter.com_1920x1080.jpg");
+}
+.main
+{
+    padding-top: 3%;
+   
+}
+.blog{
+    position:static;
+}
+
+.one
+{
+ background-color:
+ #1B4131;
+ text-align: center;
+ border: solid 0.2rem white;
+ box-shadow:
+0 0 0.6rem 0.3rem #82B545;  /* inner white */
+ max-width: 28rem;
+ max-height: 40rem;
+  padding: 5%;
+  margin: auto;
+  transition: 0.2s all ease-in-out;
+}
+.one:hover
+{
+ transform: scale(1.08);
+ justify-content: center;
+ background-color:black;
+ 
+}
+.two:hover{
+ transform: scale(1.08);
+ background-color:black;
+}
+.three:hover
+{
+ transform: scale(1.08);
+ background-color:black;
+}
+.one img:hover
+{
+ transform: scale(1.07);
+}
+.two img:hover{
+ transform: scale(1.07);
+}
+.three img:hover
+{
+ transform: scale(1.07);
+}
+.two{
+ background-color:
+ #1B4131;
+ text-align: center;
+ border: solid 0.2rem white;
+ box-shadow:
+0 0 0.6rem 0.3rem #82B545;  /* inner white */
+ max-width: 28rem;
+ max-height: 40rem;
+  padding: 5%;
+  margin: auto;
+  transition: 0.2s all ease-in-out;
+}
+.three
+{
+ background-color: #1B4131;
+ text-align: center;
+ border: solid 0.2rem white;
+ box-shadow:
+0 0 0.6rem 0.3rem #82B545;  /* inner white */
+ max-width: 28rem;
+ max-height: 40rem;
+  padding: 5%;
+  margin: auto;
+  transition: 0.2s all ease-in-out;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+}
+.one img
+{
+
+text-align: center;
+padding: 1%;
+max-width: 100%;
+max-height: 100%;
+border-radius: 2%;
+transition: 0.2s all ease-in-out;
+}
+.two img
+{
+text-align: center;
+padding: 1%;
+max-width: 100%;
+max-height: 100%;
+border-radius: 2%;
+transition: 0.2s all ease-in-out;
+
+
+}
+.three img
+{
+ text-align: center;
+ padding: 1%;
+ max-width: 100%;
+ max-height: 100%;
+ border-radius: 2%;
+ transition: 0.2s all ease-in-out;
+}
+/*About Us*/
+.top{
+    background: url("wallpaperbetter.com_1920x1080.jpg");
+    padding-top:50px;
+    padding-bottom:50px;
+}
+.info{
+    text-align: center;
+    padding:50px 50px 50px 50px;
+    font-size:22px;
+}
+
+.section-4 .row {
+  width: 100vw;
+  justify-content: space-around;
+}
+
+.section-4 .container h1 {
+    font-size: 6vmin;
+  }
+  
+  .section-4 .team {
+    padding: 10vmin 4vmin;
+  }
+  
+  .section-4 .card {
+    max-width:22em;
+  }
+  
+  .section-4 .card .card-text {
+    padding: 0.5em;
+  }
+  
+  .section-4 .card-body > a {
+    font-size: 1.5em;
+  }
+  
+  .section-4 .carousel-item {
+    padding-left: 3rem;
+  }
+  
+  .border-radius {
+    border-radius: 340px;
+    width: 60%;
+  }
+  .beautify{
+    background: url("wallpaperbetter.com_1920x1080.jpg");
+    padding-top:50px;
+    padding-bottom:50px;
+    font-weight: 1000;
+  }
+  .beautify h1{
+    color:whitesmoke;
+    text-align: center;
+    justify-content: center;
+  }
+  .chatbot{
+    font-size: 22px;
+  }
+
+  @media only screen and (max-width: 599px){
+    #aloe{
+        width:300px;
+        padding-bottom: 0px;
+    }
+    .chatbot{
+      padding-right: 10%;
+      padding-left:10%;
+    }
+  }
+  @media only screen and (min-width:600px) and (max-width:1024px){
+    #aloe{
+      width:500px;
+      padding-bottom:0;
+    }
+  }

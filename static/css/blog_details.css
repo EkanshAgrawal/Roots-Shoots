@@ -1,0 +1,40 @@
+
+.heading{
+    font-family: Georgia, “Times New Roman”, Times, serif !important;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 800 !important;
+    font-variant: small-caps;
+    color: #006 !important;
+    text-align: center;
+}
+
+.heading h2{
+    font-weight: 600 !important;
+}
+
+.author{
+    width: 50%;
+    margin: 1% auto;
+    text-align: right;
+    font-size: 1.1rem;
+}
+
+.article-text{
+    text-align: left !important;
+    padding-left: 15%;
+    padding-right: 15%;
+    color: black;
+}
+
+.article-text p{
+    color: black;
+}
+
+.article-image{    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+}

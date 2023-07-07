@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+.wrapper {
+    max-width: 80vw;
+    width: 100%;
+    background: #fff;
+    margin: 50px auto;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    padding: 50px;
+}
+
+.wrapper .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: green;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.wrapper .form {
+    width: 100%;
+}
+
+.wrapper .form .inputfield {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .form .inputfield label {
+    width: 200px;
+    color: #757575;
+    margin-right: 10px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.wrapper .form .inputfield ::placeholder {
+    font-size: 12px;
+}
+
+.wrapper .form .inputfield .input,
+.wrapper .form .inputfield .textarea {
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .textarea {
+    width: 100%;
+    height: 125px;
+    resize: none;
+}
+
+.wrapper .form .inputfield .custom_select {
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+
+.wrapper .form .inputfield .custom_select:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    border: 8px solid;
+    border-color: #d5dbd9 transparent transparent transparent;
+    pointer-events: none;
+}
+
+.wrapper .form .inputfield .custom_select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    border: 0px;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #d5dbd9;
+    border-radius: 3px;
+}
+
+
+.wrapper .form .inputfield .input:focus,
+.wrapper .form .inputfield .textarea:focus,
+.wrapper .form .inputfield .custom_select select:focus {
+    border: 1px solid green;
+}
+
+.wrapper .form .inputfield:last-child {
+    margin-bottom: 0;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 50px;
+    font-family: Helvetica;
+    border-bottom: 5px solid steelblue;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: linear-gradient(#5FDDFF, #53ADDF);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px grey;
+    transition: 150ms ease;
+    font-weight: bold;
+}
+
+input[type="submit"]:active {
+    border: none;
+    border-bottom: 2px solid steelblue;
+    box-shadow: 0px 1px 5px grey;
+    background: linear-gradient(#53AFFF, #5FCDFF);
+    color: #FFF;
+}
+
+.btn-3d-sub {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    height: 50px;
+    font-family: Helvetica;
+    border-bottom: 5px solid #173814;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: linear-gradient(#469e3f, #255b20);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px grey;
+    transition: 150ms ease;
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    position: relative;
+    top: 20px;
+}
+
+.btn-3d-sub:active {
+    border: none;
+    border-bottom: 2px solid steelblue;
+    box-shadow: 0px 1px 5px grey;
+    background: linear-gradient(#255b20, #469e3f);
+    color: #FFF;
+}
+
+:root {
+    --color-blue: #50C878;
+    /* 7,5:1 AAA */
+    --color-bluehover: green;
+    /* 11,2:1 AAA */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    font-size: 0.8rem;
+}
+
+
+input[type="file"] {
+    outline: 1px solid transparent;
+    outline-offset: 1px;
+}
+
+input[type="file"]:focus {
+    outline-color: currentColor;
+}
+
+::-webkit-file-upload-button {
+
+    -webkit-appearance: button;
+
+    font-size: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-blue);
+    padding: .7em .9em;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0;
+
+}
+
+::-webkit-file-upload-button:hover {
+    background: var(--color-bluehover);
+}
+
+::-webkit-file-upload-button:focus {
+    /* Edge + Chrome + Opera */
+    outline: 0;
+}
+
+
+::file-selector-button {
+    font-size: inherit;
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-blue);
+    padding: .7em .9em;
+    cursor: pointer;
+    border: 0;
+}
+
+::file-selector-button:hover {
+    background: var(--color-bluehover);
+}
+
+@media (max-width:420px) {
+    .wrapper .form .inputfield {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wrapper .form .inputfield label {
+        margin-bottom: 5px;
+    }
+
+    .wrapper .form .inputfield.terms {
+        flex-direction: row;
+    }
+}
